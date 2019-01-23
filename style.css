@@ -1,0 +1,14 @@
+body{
+  background-color: black;
+}
+img{
+  display: none;
+}
+#player{
+}
+#gameSpace{
+  cursor:pointer;
+  margin: auto;
+  background-color: White;
+  border: 10px inset #555555;
+}
