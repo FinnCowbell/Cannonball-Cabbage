@@ -12,8 +12,14 @@ function start(){
   if(!running){
     let Cannonball = setInterval(function(){
         ctx.clearRect(0,0,c.width,c.height)
-        let frame = frameList[beat % frameList.length].draw(c,ctx);
+        let frame = frameList[beat].draw(c,ctx);
         beat++ //progress to the next move.
+        if(beat == frameList.length){
+          running = false;
+          clearInterval(Cannonball);
+          ctx.clearRect(0,0,c.width,c.height)
+          ctx.fillText("Click to Start",c.width/2-75,c.height/2-15);
+        }
       },300);
     ctx.clearRect(0,0,c.width,c.height);
     running = true;
