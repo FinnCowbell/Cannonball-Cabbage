@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // var CabbageFrame = function(file,scale,X,Y,hFlip=false,vFlip=false){
 //   this.file = document.getElementById(file);
 //   this.scale = scale;
@@ -9,6 +10,19 @@
 //     ctx.drawImage(this.file,X,Y,this.file.width*this.scale,this.file.height*this.scale);
 //   };
 // }
+=======
+var CabbageFrame = function(file,scale,X,Y,hFlip=false,vFlip=false){
+  this.file = document.getElementById(file);
+  this.scale = scale;
+  this.X = X;
+  this.Y = Y;
+  this.hFlip = hFlip;
+  this.vFlip = vFlip;
+  this.draw = function(c,ctx){
+    ctx.drawImage(this.file,X,Y,this.file.width*this.scale,this.file.height*this.scale);
+  };
+}
+>>>>>>> bb068e3814a49ea064fccf1d9c20ae95501cab25
 var Black = {
   file: false,
   draw: function(c,ctx){
