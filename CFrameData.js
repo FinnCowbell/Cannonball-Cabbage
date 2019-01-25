@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // var CabbageFrame = function(file,scale,X,Y,hFlip=false,vFlip=false){
 //   this.file = document.getElementById(file);
 //   this.scale = scale;
@@ -10,19 +9,6 @@
 //     ctx.drawImage(this.file,X,Y,this.file.width*this.scale,this.file.height*this.scale);
 //   };
 // }
-=======
-var CabbageFrame = function(file,scale,X,Y,hFlip=false,vFlip=false){
-  this.file = document.getElementById(file);
-  this.scale = scale;
-  this.X = X;
-  this.Y = Y;
-  this.hFlip = hFlip;
-  this.vFlip = vFlip;
-  this.draw = function(c,ctx){
-    ctx.drawImage(this.file,X,Y,this.file.width*this.scale,this.file.height*this.scale);
-  };
-}
->>>>>>> bb068e3814a49ea064fccf1d9c20ae95501cab25
 var Black = {
   file: false,
   draw: function(c,ctx){
@@ -40,7 +26,16 @@ var NeutralCenter = {
     ctx.drawImage(file,c.width/2-(file.width * this.scale/2),c.height/2-(file.height * this.scale/2),file.width*this.scale,file.height*this.scale)
   },
 }
-
+var Blink = {
+  hFlip: false,
+  vFlip: false,
+  file: "Blink",
+  scale: 6,
+  draw: function(c,ctx){
+    file = document.getElementById(this.file)
+    ctx.drawImage(file,c.width/2-(file.width * this.scale/2),c.height/2-(file.height * this.scale/2),file.width*this.scale,file.height*this.scale)
+  },
+}
 var Zoom1 = {
   hFlip: false,
   vFlip: false,
@@ -96,6 +91,7 @@ let Z3 = Zoom3;
 let C = Clap;
 let N = NeutralCenter;
 let B = Black;
+let Bl = Blink;
 function addFrame(frameList, frame, amount){
   for(let i = 0; i < amount/frame.length; i++){
     for(let j = 0; j<frame.length; j++){
@@ -119,10 +115,28 @@ addFrame(frameList,[W,C],24)
 addFrame(frameList,[W],8)
 addFrame(frameList,[W,C],28)
 addFrame(frameList,[W],4)
-addFrame(frameList,[N],48)
+
+addFrame(frameList,[N],8)
+addFrame(frameList,[Bl],1)
+addFrame(frameList,[N],3)
+addFrame(frameList,[Bl],1)
+addFrame(frameList,[N],8)
+addFrame(frameList,[Bl],1)
+addFrame(frameList,[N],2)
+addFrame(frameList,[Bl],1)
+addFrame(frameList,[N],27)
+
 addFrame(frameList,[W,C],24)
 addFrame(frameList,[W],8)
-addFrame(frameList,[N],28)
+
+addFrame(frameList,[N],4)
+addFrame(frameList,[Bl],2)
+addFrame(frameList,[N],12)
+addFrame(frameList,[Bl],1)
+addFrame(frameList,[N],2)
+addFrame(frameList,[Bl],1)
+addFrame(frameList,[N],6)
+
 addFrame(frameList,[W],4)
 addFrame(frameList,[W,C],24)
 addFrame(frameList,[W],7)
